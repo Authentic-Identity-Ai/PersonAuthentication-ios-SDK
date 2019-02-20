@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         //Helper function for language change
-        HyperSnapDemoAppLocalizer.DoTheSwizzling()
+        PersonAuthenticationAppLocalizer.DoTheSwizzling()
                 
         return true
     }

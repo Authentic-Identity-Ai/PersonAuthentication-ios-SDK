@@ -15,7 +15,7 @@ import UIKit
 
 let APPLE_LANGUAGE_KEY = "AppleLanguages"
 /// L102Language
-class HyperSnapDemoAppLanguage {
+class PersonAuthenticationAppLanguage {
     /// get current Apple language
     class func currentAppleLanguage() -> String{
         let userdef = UserDefaults.standard
@@ -31,7 +31,7 @@ class HyperSnapDemoAppLanguage {
     }
 }
 
-class HyperSnapDemoAppLocalizer: NSObject {
+class PersonAuthenticationAppLocalizer: NSObject {
     class func DoTheSwizzling() {
         MethodSwizzleGivenClassName(cls: Bundle.self, originalSelector: #selector(Bundle.localizedString(forKey:value:table:)), overrideSelector: #selector(Bundle.specialLocalizedStringForKey(key:value:table:)))
     }
@@ -40,7 +40,7 @@ class HyperSnapDemoAppLocalizer: NSObject {
 
 extension Bundle {
     @objc func specialLocalizedStringForKey(key: String, value: String?, table tableName: String?) -> String {
-        /*2*/let currentLanguage = HyperSnapDemoAppLanguage.currentAppleLanguage()
+        /*2*/let currentLanguage = PersonAuthenticationAppLanguage.currentAppleLanguage()
         var bundle = Bundle();
         /*3*/if let _path = Bundle.main.path(forResource: currentLanguage, ofType: "lproj") {
             bundle = Bundle(path: _path)!
